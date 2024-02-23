@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+    <span>Casa & Conforto</span>
+    <span class="toolbar-spacer"></span>
+    <button mat-fab extended color="accent" aria-label="Checkout" (click)="onOpenCart()">
+        <mat-icon>shopping_cart</mat-icon>
+        <span class="cart-counter">{{ cartItemsCount }}</span>
+    </button>
+</mat-toolbar>

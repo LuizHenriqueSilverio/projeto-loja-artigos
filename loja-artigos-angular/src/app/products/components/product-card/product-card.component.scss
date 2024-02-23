@@ -1,0 +1,38 @@
+.product-card {
+  max-width: 400px;
+  border: 1px solid #ffffff;
+
+  mat-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-image {
+    width: 80%;
+    height: 80%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    margin: 20px auto;
+  }
+
+  mat-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  mat-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.product-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+}

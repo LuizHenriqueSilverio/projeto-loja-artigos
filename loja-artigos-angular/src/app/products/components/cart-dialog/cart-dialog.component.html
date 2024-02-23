@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Carrinho de Compras</h2>
+<div mat-dialog-content>
+  <ul>
+    <li *ngFor="let item of cartItems">
+      <p>{{ item.product.name }}</p>
+      <p>Quantidade: {{ item.quantity }}</p>
+      <p>Preço: {{ item.product.price | currency }}</p>
+      <button mat-icon-button (click)="onUpdateQuantity(item, item.quantity + 1)">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button mat-icon-button (click)="onUpdateQuantity(item, item.quantity - 1)">
+        <mat-icon>remove</mat-icon>
+      </button>
+      <button mat-icon-button (click)="onRemoveItem(item)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <br>
+    </li>
+  </ul>
+  <p>Total: {{ totalPrice | currency }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="onClearCart()">Limpar Carrinho</button>
+  <button mat-button (click)="onCloseDialog()">Fechar</button>
+  <button mat-button (click)="onCheckout()">Finalizar Pedido</button>
+</div>
+

@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Adicionar ao carrinho</h2>
+<mat-dialog-content>
+  <p>Por favor, informe a quantidade de produtos que você deseja adicionar ao carrinho:</p>
+  <p> {{ product?.name }} - {{ product?.price | currency }}</p>
+  <mat-form-field>
+    <input matInput type="number" [(ngModel)]="quantity" placeholder="Quantidade">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="{ product: product, quantity: quantity }" [disabled]="quantity <= 0" cdkFocusInitial>Adicionar</button>
+</mat-dialog-actions>

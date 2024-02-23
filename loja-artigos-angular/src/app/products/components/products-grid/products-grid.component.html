@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-content>
+
+    <app-category-filter [categories]="categories$" (categorySelected)="onCategorySelected($event)"></app-category-filter>
+
+    <ng-template #loading>
+      <div class="loading-spinner">
+        <mat-spinner></mat-spinner>
+      </div>
+    </ng-template>
+
+    <div *ngIf="(filteredProducts$ | async) as filteredProducts; else loading">
+    <mat-grid-list [cols]="cols" rowHeight="600px">
+      <mat-grid-tile *ngFor="let product of filteredProducts">
+        <app-product-card [product]="product"></app-product-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+    </div>
+
+
+  </mat-card-content>
+</mat-card>

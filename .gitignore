@@ -1,0 +1,80 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+### ANGULAR ###
+
+# Compiled output
+loja-artigos-angular/dist
+loja-artigos-angular/tmp
+loja-artigos-angular/out-tsc
+loja-artigos-angular/bazel-out
+
+# Node
+loja-artigos-angular/node_modules
+loja-artigos-angular/npm-debug.log
+loja-artigos-angular/yarn-error.log
+
+# IDEs and editors
+loja-artigos-angular/.idea/
+loja-artigos-angular/.project
+loja-artigos-angular/.classpath
+loja-artigos-angular/.c9/
+loja-artigos-angular/*.launch
+loja-artigos-angular/.settings/
+loja-artigos-angular/*.sublime-workspace
+
+# Visual Studio Code
+loja-artigos-angular/.vscode/*
+loja-artigos-angular/!.vscode/settings.json
+loja-artigos-angular/!.vscode/tasks.json
+loja-artigos-angular/!.vscode/launch.json
+loja-artigos-angular/!.vscode/extensions.json
+loja-artigos-angular/.history/*
+
+# Miscellaneous
+loja-artigos-angular/.angular/cache
+loja-artigos-angular/.sass-cache/
+loja-artigos-angular/connect.lock
+loja-artigos-angular/coverage
+loja-artigos-angular/libpeerconnection.log
+loja-artigos-angular/testem.log
+loja-artigos-angular/typings
+
+# System files
+loja-artigos-angular/.DS_Store
+loja-artigos-angular/Thumbs.db
+
+### SPRING ###
+
+loja-artigos-spring/HELP.md
+loja-artigos-spring/target/
+loja-artigos-spring/!.mvn/wrapper/maven-wrapper.jar
+loja-artigos-spring/!**/src/main/**/target/
+loja-artigos-spring/!**/src/test/**/target/
+
+### STS ###
+loja-artigos-spring/.apt_generated
+loja-artigos-spring/.classpath
+loja-artigos-spring/.factorypath
+loja-artigos-spring/.project
+loja-artigos-spring/.settings
+loja-artigos-spring/.springBeans
+loja-artigos-spring/.sts4-cache
+
+### IntelliJ IDEA ###
+loja-artigos-spring/.idea
+loja-artigos-spring/*.iws
+loja-artigos-spring/*.iml
+loja-artigos-spring/*.ipr
+
+### NetBeans ###
+loja-artigos-spring//nbproject/private/
+loja-artigos-spring//nbbuild/
+loja-artigos-spring//dist/
+loja-artigos-spring//nbdist/
+loja-artigos-spring//.nb-gradle/
+loja-artigos-spring/build/
+loja-artigos-spring/!**/src/main/**/build/
+loja-artigos-spring/!**/src/test/**/build/
+
+### VS Code ###
+loja-artigos-spring/.vscode/

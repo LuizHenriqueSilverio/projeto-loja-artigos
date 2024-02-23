@@ -1,0 +1,14 @@
+mat-card {
+  max-width: 80%;
+  margin: 2em auto;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+.loading-spinner {
+  padding: 25px;
+  background: rgba(0, 0, 0, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
