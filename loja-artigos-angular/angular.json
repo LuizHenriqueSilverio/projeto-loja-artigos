@@ -66,11 +66,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "loja-artigos-angular:build:production"
+              "buildTarget": "loja-artigos-angular:build:production"
             },
             "development": {
-              "browserTarget": "loja-artigos-angular:build:development",
-              "proxyConfig": "proxy.conf.js"
+              "proxyConfig": "proxy.conf.js",
+              "buildTarget": "loja-artigos-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "loja-artigos-angular:build"
+            "buildTarget": "loja-artigos-angular:build"
           }
         },
         "test": {

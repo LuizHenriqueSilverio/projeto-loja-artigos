@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, forkJoin, map, mergeMap, Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
+import { BehaviorSubject, forkJoin, map, mergeMap, Observable } from 'rxjs';
 import { Sale } from 'src/model/sale';
 import { SaleItem } from 'src/model/saleitem';
 
@@ -16,12 +17,16 @@ export class CartService {
 
   constructor(
     private saleService: SalesService,
-    private saleItemService: SaleItemService
-  ) { }
+    private saleItemService: SaleItemService,
+    private cookieService: CookieService
+  ) {
+    this.loadCartItemsFromCookie();
+  }
 
   addSaleItem(saleItem: SaleItem): void {
     this.saleItems.push(saleItem);
     this.saleItemSubject.next(this.saleItems.length);
+    this.saveCartItemsToCookie();
   }
 
   removeSaleItem(item: SaleItem): void {
@@ -30,6 +35,7 @@ export class CartService {
       this.saleItems.splice(index, 1);
       this.saleItemSubject.next(this.saleItems.length);
     }
+    this.saveCartItemsToCookie();
   }
 
   updateQuantity(item: SaleItem, quantity: number): void {
@@ -37,15 +43,18 @@ export class CartService {
     if(index != -1){
       this.saleItems[index].quantity = quantity;
     }
+    this.saveCartItemsToCookie();
   }
 
   getSaleItems(): SaleItem[] {
+    this.loadCartItemsFromCookie();
     return this.saleItems;
   }
 
   clearSaleItems(): void{
     this.saleItems = [];
     this.saleItemSubject.next(0);
+    this.cookieService.delete('cart');
   }
 
   getCartItemCount(): Observable<number> {
@@ -74,5 +83,18 @@ export class CartService {
         return true;
       })
     );
+  }
+
+  saveCartItemsToCookie(): void {
+    const saleItemsString = JSON.stringify(this.saleItems);
+    this.cookieService.set('cart', saleItemsString);
+  }
+
+  loadCartItemsFromCookie(): void {
+    const saleItemsString = this.cookieService.get('cart');
+    if(saleItemsString){
+      this.saleItems = JSON.parse(saleItemsString);
+      this.saleItemSubject.next(this.saleItems.length);
+    }
   }
 }
